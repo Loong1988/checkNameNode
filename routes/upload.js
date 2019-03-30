@@ -39,16 +39,20 @@ var upload = multer({
 var router = express.Router();
 
 router.post('/', upload.any(), function (req, res, next) {
-    console.log('--1');
+    console.log('upload---');
     console.log(req.files[0])
 
     var newname = req.files[0].path + pathLib.parse(req.files[0].originalname).ext;
     //为上传的文件添加后缀
     fs.rename(req.files[0].path, newname, function (err) {
+        console.log(' fs.rename---');
+        console.log(err);
         if (!err) {
-            res.send('upload success');
+            res.send('upload success-1');
         } else {
-            res.send('upload fault');
+           
+            
+            res.send('upload fault-2');
         }
     })
 });

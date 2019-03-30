@@ -7,9 +7,10 @@ var logger = require('morgan');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var upload = require('./routes/upload');
+// var bodyParser = require('body-parser')
 
 var app = express();
-
+// app.use(bodyParser.urlencoded({ extended: false }))
 app.use("*", function (req, res, next) {
   res.header('Access-Control-Allow-Origin', '*');
   res.header("Access-Control-Allow-Headers", "Content-Type,Content-Length, Authorization, Accept,X-Requested-With");
